@@ -1,0 +1,14 @@
+name: FragmentPowers
+version: 1.0.0
+main: com.borna.fragmentpowers.FragmentPowersPlugin
+api-version: '1.21'
+author: Borna
+description: Custom Fragment Power system
+commands:
+  fragment:
+    description: Give Fragment Powers
+    usage: /fragment give <player> <id> [amount]
+    permission: fragmentpowers.admin
+permissions:
+  fragmentpowers.admin:
+    default: op
