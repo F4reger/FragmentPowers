@@ -1,0 +1,29 @@
+name: Make Fragment Plugin
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Preuzmi projekt
+        uses: actions/checkout@v4
+
+      - name: Postavi Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Izgradi plugin
+        run: mvn clean package
+
+      - name: Spremi JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: FragmentPowers-JAR
+          path: target/*.jar
